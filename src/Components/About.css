@@ -37,3 +37,11 @@
    
 
 }
+
+@media (max-width: 992px) { 
+    
+    .about-img>img{
+
+      margin-left: 2.3rem;
+    }
+}

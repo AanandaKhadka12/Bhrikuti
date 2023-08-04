@@ -1,7 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Services.css';
+import Card from './Card';
 
 const Services = () => {
+    const [cato, setCato] = useState([
+        { 
+          id: "cat1", 
+          text: "Handicrafts", 
+          img:"https://imgcdn.floweraura.com/birthday_17.jpg?tr=w-300,h-300,dpr-1.5,q-70"
+        },
+        { 
+          id: "cat2", 
+          text: "Paintings",
+          img:"https://imgcdn.floweraura.com/birthday_17.jpg?tr=w-300,h-300,dpr-1.5,q-70"
+        },
+        { 
+            id: "cat3", 
+            text: "Sculptures", 
+            img:"https://imgcdn.floweraura.com/birthday_17.jpg?tr=w-300,h-300,dpr-1.5,q-70"
+          },
+          { 
+            id: "cat4", 
+            text: "Nepali Cultures",
+            img:"https://imgcdn.floweraura.com/birthday_17.jpg?tr=w-300,h-300,dpr-1.5,q-70" 
+          },
+      ]);
   return (
     <>
     <div className="container-fluid"> 
@@ -26,56 +49,15 @@ const Services = () => {
         <div className='card cards__all'>
 
             <div className='row'>
-
-                <div className='col-lg-3 col-sm-12'>
-
-                    <div className='card__ind'>
-                        <a href="login.html" ><img src="https://imgcdn.floweraura.com/birthday_17.jpg?tr=w-300,h-300,dpr-1.5,q-70" alt="myPic" class="card__img" /></a>
-                            <div class="card__info">
-                    
-                                <span class="card__category">Birthday</span>
-                                    
-                    
-                            </div>
-                    </div>
-
-                </div>
-                <div className='col-lg-3 col-sm-12'>
-                <div className='card__ind'>
-                        <a href="login.html" ><img src="https://imgcdn.floweraura.com/birthday_17.jpg?tr=w-300,h-300,dpr-1.5,q-70" alt="myPic" class="card__img" /></a>
-                            <div class="card__info">
-                    
-                                <span class="card__category">Birthday</span>
-                                    
-                    
-                            </div>
-                    </div>
-                </div>
-                <div className='col-lg-3 col-sm-12'>
-                <div className='card__ind'>
-                        <a href="login.html" ><img src="https://imgcdn.floweraura.com/birthday_17.jpg?tr=w-300,h-300,dpr-1.5,q-70" alt="myPic" class="card__img" /></a>
-                            <div class="card__info">
-                    
-                                <span class="card__category">Birthday</span>
-                                    
-                    
-                            </div>
-                    </div>
-
-                </div>
-                <div className='col-lg-3 col-sm-12'>
-
-                <div className='card__ind'>
-                        <a href="login.html" ><img src="https://imgcdn.floweraura.com/birthday_17.jpg?tr=w-300,h-300,dpr-1.5,q-70" alt="myPic" class="card__img" /></a>
-                            <div class="card__info">
-                    
-                                <span class="card__category">Birthday</span>
-                                    
-                    
-                            </div>  
-                    </div>
-                </div>
-
+                {cato.map((catego)=>{
+                
+                return <Card  key={catego.id}
+                catName={catego.text}
+                imgsour={catego.img}
+                />
+                
+                })}
+                
 
             </div>
 

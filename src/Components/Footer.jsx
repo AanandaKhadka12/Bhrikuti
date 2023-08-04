@@ -6,10 +6,10 @@ const Footer = () => {
   return (
     <>
     
-        <div className='container-fluid footer'>
+        <div className='container-fluid '>
 
 
-            <div className='row'> 
+            <div className='row footer'> 
             
                 <div className='col-lg-4 col-sm-12 footer-img'>
 
@@ -54,7 +54,7 @@ const Footer = () => {
                 </div>
             
             </div>
-            <div className='row'>
+            <div className='row mt-5'>
 
                 <div className='col-md-12 col-sm-12 text-center copyright'>
 
