@@ -15,25 +15,30 @@
 
 
 .nav-item a{
-    color:#FF8C00;
+    color:white;
   }
 
 
 
 
 .nav-item a:hover {
-    color:#FF5F15;
+    
     border-bottom: 2px solid #FF5F15;
     
     
 }
 
+.nav-item a:visited{
+
+    color: white;
+}
+
 .nav-item{
     
     min-width:8em;
-    color:red;
 
 }
+
 
 .brandName{
 
@@ -46,5 +51,15 @@
 
     background:#037582;
 }
+
+@media (max-width: 992px) { 
+    
+    .navbar-toggler{
+    
+        margin-bottom: 2rem;
+    
+    }
+}
+
 
   

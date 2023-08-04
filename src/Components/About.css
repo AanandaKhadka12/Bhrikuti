@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Pacifico&family=Roboto:ital,wght@0,100;1,100&display=swap');
+
 
 .about-title{
 
@@ -36,4 +36,12 @@
     font-size: large;
    
 
+}
+
+@media (max-width: 992px) { 
+    
+    .about-img>img{
+
+      margin-left: 2.3rem;
+    }
 }

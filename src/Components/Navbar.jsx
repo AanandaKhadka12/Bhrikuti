@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 import './Navbar.css'
 import  emg from '../static/images/dhakatopi.jpg'
 
@@ -19,20 +20,21 @@ const Navbar = () => {
         </div>
         <div className="text-center mt-3 collapse navbar-collapse" id="NavDropdown">
           <ul className="navbar-nav mx-auto ">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Home</a>
+
+          <li className="nav-item">
+              <NavLink to="/" className="nav-link">Home</NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">About</a>
+              <NavLink to="/About" className="nav-link">About</NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Contact</a>
+            <NavLink to="/Services" className="nav-link">Services</NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Services</a>
+            <NavLink to="/Contact" className="nav-link">Contact</NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Log In</a>
+            <NavLink to="/Login" className="nav-link">Log in</NavLink>
             </li>
           </ul>
         </div>

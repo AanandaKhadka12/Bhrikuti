@@ -6,17 +6,17 @@ const Footer = () => {
   return (
     <>
     
-        <div className='container-fluid footer'>
+        <div className='container-fluid '>
 
 
-            <div className='row'> 
+            <div className='row footer'> 
             
-                <div className='col-md-4 col-sm-12 footer-img'>
+                <div className='col-lg-4 col-sm-12 footer-img'>
 
                     <img src={img1} />  
 
                 </div>
-                <div className='col-md-4 col-sm-12 footer-info'>
+                <div className='col-lg-4 col-sm-12 footer-info'>
 
                     <h1> Get In Touch</h1>
                     <div className='address'>
@@ -37,7 +37,7 @@ const Footer = () => {
                     </div>
 
                 </div>
-                <div className='col-md-4 col-sm-12 footer-links'>
+                <div className='col-lg-4 col-sm-12 footer-links'>
 
                     <h1>Quick Links</h1>
                     <div className='links'>
@@ -54,7 +54,7 @@ const Footer = () => {
                 </div>
             
             </div>
-            <div className='row'>
+            <div className='row mt-5'>
 
                 <div className='col-md-12 col-sm-12 text-center copyright'>
 
