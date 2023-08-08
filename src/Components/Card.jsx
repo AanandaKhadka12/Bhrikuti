@@ -5,10 +5,10 @@ const Card = (props) => {
     <div className='col-lg-3 col-sm-12'>
 
                     <div className='card__ind'>
-                        <a href="login.html" ><img src={props.imgsour} alt="myPic" class="card__img" /></a>
-                            <div class="card__info">
+                        <a href="login.html" ><img src={props.imgsour} alt="myPic" className="card__img" /></a>
+                            <div className="card__info">
                     
-                                <span class="card__category">{props.catName}</span>
+                                <span className="card__category">{props.catName}</span>
                                     
                     
                             </div>

@@ -4,7 +4,7 @@ const Model = require('../models/userModel');
 const router = express.Router();
 
 //Post Method
-router.post('/login', async (req, res) => {
+router.post('/signup', async (req, res) => {
     const data = new Model({
         username: req.body.username,
         password: req.body.password
@@ -28,10 +28,31 @@ router.post('/login', async (req, res) => {
 })
 
 //Get all Method
-router.get('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
     try {
-        const data = await Model.find();
-        res.json(data)
+        let user =  await  Model.findOne({
+            where:{
+            username:req.body.username,
+            password:req.body.password
+            }
+            }); 
+            if(user){
+                const token = jwt.sign(
+                    { username: user.username },
+                    "Bhr1kut1T0ken",
+                    {
+                      expiresIn: "2h",
+                    }
+                  );
+                    res.status(200).json({token:token})
+            }
+          else{
+            console.log("ananda bhaiya")
+                res.status(404).json({ error:"User not found" });
+                // stop further execution in this callback
+                return;
+              }  
+
     }
     catch (error) {
         res.status(500).json({ message: error.message })

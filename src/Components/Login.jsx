@@ -8,11 +8,17 @@ const Login = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const token = await userService.loginUser({
+    const result = await userService.loginUser({
       username,
       password
     });
-    sessionStorage.setItem('token', JSON.stringify(token));
+    if(result.error){
+      console.log("erro here")
+
+    }else{
+      sessionStorage.setItem('token', result.token);
+    }
+
   }
 
   return (

@@ -9,6 +9,17 @@ async function loginUser(credentials) {
       .then(data => data.json())
    }
 
+   async function signupUser(credentials) {
+    return fetch('http://localhost:3001/api/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(credentials)
+    })
+      .then(data => data.json())
+   }
+
 
    async function createContact(data) {
     return fetch('http://localhost:3001/api/contact', {
@@ -20,4 +31,4 @@ async function loginUser(credentials) {
     })
       .then(data => data.json())
    }
-   export const userService = { loginUser ,createContact};
+   export const userService = { loginUser ,createContact,signupUser};
