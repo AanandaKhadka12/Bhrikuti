@@ -1,6 +1,8 @@
 import React,{useState} from "react";
 import "./Login.css";
 import { userService } from "../Services/userService";
+import index from ".";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Login = () => {
   const [username, setUserName] = useState();
@@ -13,6 +15,7 @@ const Login = () => {
       password
     });
     sessionStorage.setItem('token', JSON.stringify(token));
+    window.location.replace("/index");
   }
 
   return (

@@ -2,7 +2,7 @@
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
-const mongoString ="mongodb://localhost:27017/Bhrikuti";
+const mongoString ="mongodb://127.0.0.1:27017/Bhrikuti";
 const userRouter = require('./routes/userRoutes');
 const contactRouter = require('./routes/contactRoutes');
 
