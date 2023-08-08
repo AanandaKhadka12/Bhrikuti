@@ -1,7 +1,23 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Contact.css";
+import { userService } from "../Services/userService";
 
 const Contact = () => {
+  const [name, setName] = useState()
+  const [email, setEmail] = useState()
+  const [phone, setPhone] = useState()
+  const [message, setMessage] = useState()
+
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+   await userService.createContact({
+      name,
+      email,
+      phone,
+      message
+    });
+  }
   return (
     <>
       <div className="container-fluid">
@@ -30,12 +46,12 @@ const Contact = () => {
                     <i className="fa-brands fa-linkedin"></i>
                   </a>
                 </div>
-              <form action="#">
+              <form onSubmit={(e)=>handleSubmit(e)}>
                 
-                <input className="form-control" type="text" name="name" placeholder="Name.." />
-                <input className="form-control" type="email" name="email" placeholder="Email.." />
-                <input className="form-control" type="phone" name="phone" placeholder="Phone.." />
-                <textarea className="form-control" rows="4" name="message" placeholder="Message..."></textarea>
+                <input className="form-control" type="text" name="name" placeholder="Name.." onChange={e => setName(e.target.value)}/>
+                <input className="form-control" type="email" name="email" placeholder="Email.." onChange={e => setEmail(e.target.value)}/>
+                <input className="form-control" type="phone" name="phone" placeholder="Phone.." onChange={e => setPhone(e.target.value)}/>
+                <textarea className="form-control" rows="4" name="message" placeholder="Message..."onChange={e => setMessage(e.target.value)}></textarea>
                 <button type="submit">Submit</button>
               </form>
             </div>

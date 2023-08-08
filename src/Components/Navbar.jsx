@@ -4,6 +4,7 @@ import './Navbar.css'
 import  emg from '../static/images/dhakatopi.jpg'
 
 const Navbar = () => {
+  const token= sessionStorage.getItem("token")
   return (
     <div className="navigation_main">
       <nav role="Logos">
@@ -34,7 +35,8 @@ const Navbar = () => {
             <NavLink to="/Contact" className="nav-link">Contact</NavLink>
             </li>
             <li className="nav-item">
-            <NavLink to="/Login" className="nav-link">Log in</NavLink>
+              {token?<NavLink to="/profile" className="nav-link">Profile</NavLink>: 
+            <NavLink to="/login" className="nav-link">Log in</NavLink>}
             </li>
           </ul>
         </div>
