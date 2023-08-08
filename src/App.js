@@ -8,13 +8,13 @@ import Footer from './Components/Footer';
 import Services from './Components/Services'
 import Contact from './Components/Contact'
 import Login from './Components/Login';
+import Signup from './Components/Signup';
 
 
 
 
 const App = () => {
   return (
-
     <>
       <Navbar />
       <Switch>
@@ -30,6 +30,10 @@ const App = () => {
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/about" component={About} />
         <Route exact path="/services" component={Services} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
+
+
         <Redirect to="/" />
 
 

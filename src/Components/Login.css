@@ -9,23 +9,15 @@
 
 section 
 {
-  position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2px;
   flex-wrap: wrap;
   overflow: hidden;
 }
-section::before 
-{
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
+
 @keyframes animate 
 {
   0%
@@ -37,15 +29,7 @@ section::before
     transform: translateY(100%);
   }
 }
-section span 
-{
-  position: relative;
-  display: block;
-  width: calc(6.25vw - 2px);
-  height: calc(6.25vw - 2px);
-  z-index: 2;
-  transition: 1.5s;
-}
+
 section span:hover 
 {
   background: #037582;
@@ -54,19 +38,16 @@ section span:hover
 
 section .signin
 {
-  position: absolute;
   width: 400px;
-  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
   border-radius: 4px;
-  box-shadow: 0 15px 35px rgba(0,0,0,9);
+  box-shadow: 0 15px 25px rgba(0,0,0,9);
 }
 section .signin .content 
 {
-  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -97,7 +78,6 @@ section .signin .content .form .inputBox input
   position: relative;
   width: 100%;
   padding: 25px 10px 7.5px;
-  /* border-radius: 4px; */
   font-weight: 500;
   font-size: 1em;
 }
@@ -115,7 +95,6 @@ section .signin .content .form .inputBox i
 {
   transform: translateY(-7.5px);
   font-size: 0.8em;
-  /* color: #fff; */
 }
 .signin .content .form .links 
 {
@@ -127,7 +106,7 @@ section .signin .content .form .inputBox i
 .signin .content .form .links a 
 {
   color: #037582;
-  /* text-decoration: none; */
+  margin-top: 0;
 }
 .signin .content .form .links a:nth-child(2)
 {
