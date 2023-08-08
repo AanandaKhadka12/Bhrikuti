@@ -1,26 +1,19 @@
-const jwt = require('jsonwebtoken');
 const express = require('express');
-const Model = require('../models/userModel');
+const Model = require('../models/contactModel');
 const router = express.Router();
 
 //Post Method
-router.post('/login', async (req, res) => {
+router.post('/contact', async (req, res) => {
     const data = new Model({
-        username: req.body.username,
-        password: req.body.password
+        name: req.body.name,
+        email: req.body.email,
+        phone:req.body.phone,
+        message:req.body.message
     })
 
     try {
         const dataToSave = await data.save();
-           // Create token
-    const token = jwt.sign(
-        { username: dataToSave.username },
-        "Bhr1kut1T0ken",
-        {
-          expiresIn: "2h",
-        }
-      );
-        res.status(200).json({token:token})
+        res.status(200).json(dataToSave)
     }
     catch (error) {
         res.status(400).json({ message: error.message })
@@ -28,7 +21,7 @@ router.post('/login', async (req, res) => {
 })
 
 //Get all Method
-router.get('/login', async (req, res) => {
+router.get('/contact', async (req, res) => {
     try {
         const data = await Model.find();
         res.json(data)
