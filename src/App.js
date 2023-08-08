@@ -9,6 +9,7 @@ import Services from './Components/Services'
 import Contact from './Components/Contact'
 import Login from './Components/Login';
 import Signup from './Components/Signup';
+import Product from './Components/Product';
 
 
 
@@ -32,6 +33,7 @@ const App = () => {
         <Route exact path="/services" component={Services} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/product" component={Product} />
         <Redirect to="/" />
       </Switch>
       <Footer/>

@@ -20,4 +20,6 @@ async function loginUser(credentials) {
     })
       .then(data => data.json())
    }
+
+   
    export const userService = { loginUser ,createContact};
