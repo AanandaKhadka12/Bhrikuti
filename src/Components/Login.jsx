@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import "./Login.css";
-import { loginServices } from "../Services/loginService";
+import { userService } from "../Services/userService";
 
 const Login = () => {
   const [username, setUserName] = useState();
@@ -8,7 +8,7 @@ const Login = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const token = await loginServices.loginUser({
+    const token = await userService.loginUser({
       username,
       password
     });
