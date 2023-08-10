@@ -31,9 +31,9 @@ const Footer = () => {
                         +16479393389
                     </div>
                     <div className='social'>
-                        <a className="btn btn-social" href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a className="btn btn-social" href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a className="btn btn-social" href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a className="btn btn-social" href="#"><i className="fa-brands fa-facebook"></i></a>
+                        <a className="btn btn-social" href="#"><i className="fa-brands fa-instagram"></i></a>
+                        <a className="btn btn-social" href="#"><i className="fa-brands fa-linkedin"></i></a>
                     </div>
 
                 </div>

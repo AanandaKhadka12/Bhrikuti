@@ -9,7 +9,7 @@ const Card = (props) => {
                         <Link to="/login" ><img src={props.imgsour} alt="myPic" class="card__img" /></Link>
                             <div class="card__info">
                     
-                                <span class="card__category">{props.catName}</span>
+                                <span className="card__category">{props.catName}</span>
                                     
                     
                             </div>
