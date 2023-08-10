@@ -12,6 +12,9 @@ const dataSchema = new mongoose.Schema({
     password: {
         required: true,
         type: String
+    },
+    products:{
+        type:Array
     }
 })
 

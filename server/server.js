@@ -28,6 +28,8 @@ app.use('/api', userRouter)
 app.use('/api', contactRouter)
 app.use('/api', productRouter)
 app.use('/api',productIndRouter)
+app.use('/api',userRouter)
+
 
 
 

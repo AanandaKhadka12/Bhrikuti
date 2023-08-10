@@ -1,12 +1,15 @@
 import React,{useState} from "react";
 import "./Login.css";
 import {userService} from '../Services/userService'
+import { createBrowserHistory } from "history";
 
+export const history = createBrowserHistory();
 const Signup = () => {
   const [fullname, setFullName] = useState()
 
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
+  const [error, setError] = useState()
 
 
   const handleSubmit = async e => {
@@ -16,15 +19,11 @@ const Signup = () => {
       username,
       password
     });
-    if(result.error){
-     
-      console.log("erro here")
-
-    }else{
-      sessionStorage.setItem('token', result.token);
-      sessionStorage.setItem('fullname', result.fullname);
+    if (result.token) {
+      sessionStorage.setItem("token", result.token);
       window.location.replace("/product")
-
+    } else {
+      setError(result.message);
     }
   }
   return (
@@ -48,6 +47,10 @@ const Signup = () => {
             </div>
             <div className="inputBox">
               <input type="password" required onChange={e => setPassword(e.target.value)}></input> <i>Confirm Password</i>
+            </div>
+            <div className="links">
+              <p style={{ color: "red" }}>{error}</p>
+              <a href="#">Already have an Account?</a> <a href="login">Log In</a>
             </div>
 
             <div className="inputBox">

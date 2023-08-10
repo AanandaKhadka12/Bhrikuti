@@ -1,48 +1,78 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom';
-import './Navbar.css'
-import  emg from '../static/images/dhakatopi.jpg'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import "./Navbar.css";
+import emg from "../static/images/dhakatopi.jpg";
 
-const Navbar = () => {
-  const token= sessionStorage.getItem("token")
+const Navbar = (props) => {
   return (
     <div className="navigation_main">
       <nav role="Logos">
         <div className="text-center">
-          <img src={emg} alt="Nepali style cap" className="logo" width="70px" height="70px" />
-          <p className='brandName'>BHIRKUTI</p>
+          <img
+            src={emg}
+            alt="Nepali style cap"
+            className="logo"
+            width="70px"
+            height="70px"
+          />
+          <p className="brandName">BHIRKUTI</p>
         </div>
       </nav>
       <div className="navbar-expand-md">
         <div className="navbar-dark text-center">
-          <button className="navbar-toggler w-75" type="button" data-bs-toggle="collapse" data-bs-target="#NavDropdown" aria-controls="NavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            className="navbar-toggler w-75"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#NavDropdown"
+            aria-controls="NavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span className="text-black text-center">Menu</span>
           </button>
         </div>
-        <div className="text-center mt-3 collapse navbar-collapse" id="NavDropdown">
+        <div
+          className="text-center mt-3 collapse navbar-collapse"
+          id="NavDropdown"
+        >
           <ul className="navbar-nav mx-auto ">
-
-          <li className="nav-item">
-              <NavLink to="/" className="nav-link">Home</NavLink>
+            <li className="nav-item">
+              <NavLink to="/" className="nav-link">
+                Home
+              </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/About" className="nav-link">About</NavLink>
+              <NavLink to="/About" className="nav-link">
+                About
+              </NavLink>
             </li>
             <li className="nav-item">
-            <NavLink to="/Services" className="nav-link">Services</NavLink>
+              <NavLink to="/Services" className="nav-link">
+                Services
+              </NavLink>
             </li>
             <li className="nav-item">
-            <NavLink to="/Contact" className="nav-link">Contact</NavLink>
+              <NavLink to="/Contact" className="nav-link">
+                Contact
+              </NavLink>
             </li>
             <li className="nav-item">
-              {token?<NavLink to="/profile" className="nav-link">Profile</NavLink>: 
-            <NavLink to="/login" className="nav-link">Log in</NavLink>}
+              {props.isAuthenticated ? (
+                <NavLink to="/profile" className="nav-link">
+                  Profile
+                </NavLink>
+              ) : (
+                <NavLink to="/login" className="nav-link">
+                  Log in
+                </NavLink>
+              )}
             </li>
           </ul>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
