@@ -3,6 +3,7 @@ import "./Login.css";
 import {userService} from '../Services/userService'
 
 const Signup = () => {
+  const [fullname, setFullName] = useState()
 
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
@@ -10,10 +11,21 @@ const Signup = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    await userService.signupUser({
+    const result =await userService.signupUser({
+      fullname,
       username,
       password
     });
+    if(result.error){
+      setError(result.error)
+      console.log("erro here")
+
+    }else{
+      sessionStorage.setItem('token', result.token);
+      sessionStorage.setItem('fullname', result.fullname);
+      window.location.replace("/product")
+
+    }
   }
   return (
     <section>
@@ -22,6 +34,10 @@ const Signup = () => {
           <h2>Sign Up</h2>
 
           <form className="form" onSubmit={(e)=>handleSubmit(e)}>
+          <div className="inputBox">
+              <input type="text" required onChange={e => setFullName(e.target.value)} ></input>
+              <i>Full Name</i>
+            </div>
             <div className="inputBox">
               <input type="text" required onChange={e => setUsername(e.target.value)}></input>
               <i>Username</i>

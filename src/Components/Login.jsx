@@ -1,12 +1,11 @@
 import React,{useState} from "react";
 import "./Login.css";
 import { userService } from "../Services/userService";
-import index from "./Product";
-import {Redirect} from "react-router-dom";
 
 const Login = () => {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
+  const [error, setError] = useState()
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -15,10 +14,14 @@ const Login = () => {
       password
     });
     if(result.error){
+      setError(result.error)
       console.log("erro here")
 
     }else{
       sessionStorage.setItem('token', result.token);
+      sessionStorage.setItem('fullname', result.fullname);
+      window.location.replace("/product")
+
     }
 
   }
@@ -30,6 +33,7 @@ const Login = () => {
           <h2>Log In</h2>
 
           <form className="form" onSubmit={(e)=>handleSubmit(e)}>
+          
             <div className="inputBox">
               <input type="text" required onChange={e => setUserName(e.target.value)} ></input>
               <i>Username</i>
@@ -39,6 +43,7 @@ const Login = () => {
               <input type="password" required onChange={e => setPassword(e.target.value)} ></input> <i>Password</i>
             </div>
             <div className="links">
+            <p style={{color:"red"}}>{error}</p>
               <a href="#">Forgot Password</a> <a href="signup">Signup</a>
             </div>
 

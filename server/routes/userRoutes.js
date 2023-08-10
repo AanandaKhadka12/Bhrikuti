@@ -6,6 +6,7 @@ const router = express.Router();
 //Post Method
 router.post('/signup', async (req, res) => {
     const data = new Model({
+        fullname:req.body.fullname,
         username: req.body.username,
         password: req.body.password
     })
@@ -20,7 +21,10 @@ router.post('/signup', async (req, res) => {
           expiresIn: "2h",
         }
       );
-        res.status(200).json({token:token})
+        res.status(200).json({
+          fullname:dataToSave.fullname,
+          username:dataToSave.username,
+          token:token})
     }
     catch (error) {
         res.status(400).json({ message: error.message })
@@ -31,10 +35,10 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         let user =  await  Model.findOne({
-            where:{
+
             username:req.body.username,
             password:req.body.password
-            }
+          
             }); 
             if(user){
                 const token = jwt.sign(
@@ -44,11 +48,13 @@ router.post('/login', async (req, res) => {
                       expiresIn: "2h",
                     }
                   );
-                    res.status(200).json({token:token})
+                    res.status(200).json({
+                      fullname:user.fullname,
+                      username:user.username,
+                      token:token})
             }
           else{
-            console.log("ananda bhaiya")
-                res.status(404).json({ error:"User not found" });
+                res.status(404).json({ error:"Username or Password not found" });
                 // stop further execution in this callback
                 return;
               }  
