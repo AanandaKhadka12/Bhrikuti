@@ -17,7 +17,7 @@ const Signup = () => {
       password
     });
     if(result.error){
-      setError(result.error)
+     
       console.log("erro here")
 
     }else{

@@ -25,14 +25,11 @@ const Product = () => {
             <h2>Handicrafts</h2>
           </div>
         </div>
-        <div className="row row_all d-flex">
+        <div className="row row_all">
         {pData.map((data) => {
           {if (data.category=="handicrafts"){
           
-           return ( <Link to={{ 
-            pathname: `/productind/${data.id}`, 
-           state:data.id
-           }}>
+           return ( 
             
            <Productcard
             key={data.id}
@@ -42,7 +39,7 @@ const Product = () => {
             img={data.img}
             price={data.price}
             
-          /></Link>)
+          />)
           }}
           
       

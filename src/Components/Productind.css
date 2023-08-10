@@ -1,0 +1,51 @@
+.img_all{
+
+    margin-left: 60px;
+
+}
+  
+.path{
+
+    margin-left: 60px;
+}
+
+.full_pic{
+
+    margin-top: 20px;
+    border-radius: 10px;
+    
+
+}
+.price{
+
+    margin-top: 10px;
+    font-weight: bolder;
+
+}
+
+.name,.delivery{
+
+    font-weight: bolder;
+    margin-top: 10px;
+
+
+}
+
+.reviewPoint {
+    display: inline-block;
+    background: url(https://imgcdn.floweraura.com/ssr-build/static/media/fill_star.76f5a90e.svg) no-repeat 0 0;
+    background-position: 4px 4px;
+    background-size: 19px;
+    padding: 5px 8px 6px 30px;
+    font-size: 14px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: #1c2120;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 10%);
+    background-color: #fff;
+}
