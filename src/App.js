@@ -10,6 +10,8 @@ import Contact from './Components/Contact'
 import Login from './Components/Login';
 import Signup from './Components/Signup';
 import Product from './Components/Product';
+import Productind from './Components/Productind';
+
 
 
 
@@ -34,6 +36,7 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/product" component={Product} />
+        <Route exact path="/productind/:id" component={Productind} />
         <Redirect to="/" />
       </Switch>
       <Footer/>

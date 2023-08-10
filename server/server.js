@@ -6,6 +6,7 @@ const mongoString ="mongodb://127.0.0.1:27017/Bhrikuti";
 const userRouter = require('./routes/userRoutes');
 const contactRouter = require('./routes/contactRoutes');
 const productRouter = require("./routes/productRoutes");
+const productIndRouter = require("./routes/productIndRoutes");
 
 
 mongoose.connect(mongoString);
@@ -26,6 +27,8 @@ app.use(express.json());
 app.use('/api', userRouter)
 app.use('/api', contactRouter)
 app.use('/api', productRouter)
+app.use('/api',productIndRouter)
+
 
 
 app.listen(3001, () => {
