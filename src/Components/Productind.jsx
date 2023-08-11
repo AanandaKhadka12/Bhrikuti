@@ -77,15 +77,6 @@ const Productind = (props) => {
                   >
                     Add to Cart
                   </button>
-                  {/* <Link
-                    to={{
-                      pathname: `/profile/${decoded.id}`,
-                      state: data.id,
-                    }}
-                    className="btn btn-primary mt-4 mb-4"
-                  >
-                    Add to cart
-                  </Link> */}
                   <div className="desc">
                     <h2>Description</h2>
                     <p>{data.description}</p>

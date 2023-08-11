@@ -6,7 +6,7 @@ const Card = (props) => {
     <div className='col-lg-3 col-sm-12'>
 
                     <div className='card__ind'>
-                        <Link to="/login" ><img src={props.imgsour} alt="myPic" className="card__img" /></Link>
+                        <Link to="/product" ><img src={props.imgsour} alt="myPic" className="card__img" /></Link>
                             <div className="card__info">
                     
                                 <span className="card__category">{props.catName}</span>
