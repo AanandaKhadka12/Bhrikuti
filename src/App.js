@@ -11,6 +11,7 @@ import Signup from "./Components/Signup";
 import Product from "./Components/Product";
 import Productind from "./Components/Productind";
 import PrivateRoute from "./Components/PrivateRoute";
+import Profile from "./Components/Profile";
 
 const App = () => {
   const isAuthenticated = sessionStorage.getItem("token");
@@ -42,6 +43,7 @@ const App = () => {
           component={Productind}
           isAuthenticated={isAuthenticated}
         />
+        <Route exact path="/profile/:id" component={Profile} />
         <Redirect to="/" />
       </Switch>
       <Footer />

@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Productind.css";
+import jwt_decode from "jwt-decode";
 
 const Productind = (props) => {
   const [pData, setpData] = useState([]);
@@ -16,54 +18,59 @@ const Productind = (props) => {
 
     fetchData().catch(console.error);
   }, []);
-  {
-    
-  }
+  var token = window.sessionStorage.getItem("token");;
+  var decoded = jwt_decode(token);
+    console.log(decoded);
+
 
   return (
     <div className="container mt-5">
-      {pData.map((data)=>{
-        
-        return (<><div className="row p-3">
-
-        <div className="col-lg-12">
-
-          <p>Product>{data.category}</p>
-
-
-        </div>
-
-      </div>
-      <div className="row">
-        <div className="col-lg-6 col-sm-12">
-
-          <img src={require("../static/images/"+data.img)} height="300px" width="300px" alt="products" className="full_pic mb-5" />
-
-        </div>
-        <div className="col-lg-6 col-sm-12">
-          <div className="all_content">
-
-            <p className="name mt-3">{data.category}</p>
-            <strong className="reviewPoint">Rating 4.4</strong>
-            <p className="price mb-3">Price: ${data.price}</p>
-            <span className="delivery"><i className="fa fa-truck"></i> Get today!</span> <br />
-            <button className="btn btn-primary mt-4 mb-4">Add to cart</button>
-
-            <div className="desc">
-
-                <h2>Description</h2>
-                <p>{data.description}</p>
-
+      {pData.map((data) => {
+        return (
+          <>
+            <div className="row p-3">
+              <div className="col-lg-12">
+                <p>Product>{data.category}</p>
+              </div>
             </div>
-
-          </div>
-
-
-        </div>
-      </div></>)
-        
-        })} 
-      
+            <div className="row">
+              <div className="col-lg-6 col-sm-12">
+                <img
+                  src={require("../static/images/" + data.img)}
+                  height="300px"
+                  width="300px"
+                  alt="products"
+                  className="full_pic mb-5"
+                />
+              </div>
+              <div className="col-lg-6 col-sm-12">
+                <div className="all_content">
+                  <p className="name mt-3">{data.category}</p>
+                  <strong className="reviewPoint">Rating 4.4</strong>
+                  <p className="price mb-3">Price: ${data.price}</p>
+                  <span className="delivery">
+                    <i className="fa fa-truck"></i> Get today!
+                  </span>{" "}
+                  <br />
+                  <Link
+                    to={{
+                      pathname: `/profile/${decoded.id}`,
+                      state: data.id,
+                    }}
+                    className="btn btn-primary mt-4 mb-4"
+                  >
+                    Add to cart
+                  </Link>
+                  <div className="desc">
+                    <h2>Description</h2>
+                    <p>{data.description}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        );
+      })}
     </div>
   );
 };
