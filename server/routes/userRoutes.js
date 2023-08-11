@@ -50,8 +50,8 @@ router.post("/login", async (req, res) => {
       const token = jwt.sign(
         {
           username: user.username,
-          username: user.fullname,
-          username: user._id.toString(),
+          fullname: user.fullname,
+          id: user._id.toString(),
         },
         "Bhr1kut1T0ken",
         {
@@ -71,7 +71,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-//Update by ID Method
+
 router.patch("/update/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -85,5 +85,6 @@ router.patch("/update/:id", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
 
 module.exports = router;
