@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./Productind.css";
 import jwt_decode from "jwt-decode";
 
@@ -8,7 +7,6 @@ const Productind = (props) => {
   const [pData, setpData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      console.log(props.location.state);
       const data = await fetch(
         `http://localhost:3001/api/productind/${props.location.state}`
       );
@@ -18,10 +16,31 @@ const Productind = (props) => {
 
     fetchData().catch(console.error);
   }, []);
-  var token = window.sessionStorage.getItem("token");;
-  var decoded = jwt_decode(token);
-    console.log(decoded);
 
+  const onItemClick = async (item) => {
+    const token = window.sessionStorage.getItem("token");
+
+    if(token){
+    const decodedToken = jwt_decode(token);
+
+      const requestOptions = {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(item),
+      };
+      const result = await fetch(
+        `http://localhost:3001/api/update/${decodedToken.id}`,
+        requestOptions
+      );
+      if(result){
+        window.location.replace('/profile')
+      }
+    }else{
+      window.location.replace('/login')
+    }
+
+   
+  };
 
   return (
     <div className="container mt-5">
@@ -30,7 +49,7 @@ const Productind = (props) => {
           <>
             <div className="row p-3">
               <div className="col-lg-12">
-                <p>Product>{data.category}</p>
+                <p>Product{data.category}</p>
               </div>
             </div>
             <div className="row">
@@ -52,7 +71,13 @@ const Productind = (props) => {
                     <i className="fa fa-truck"></i> Get today!
                   </span>{" "}
                   <br />
-                  <Link
+                  <button
+                    onClick={(e) => onItemClick(data)}
+                    className="btn btn-primary mt-4 mb-4"
+                  >
+                    Add to Cart
+                  </button>
+                  {/* <Link
                     to={{
                       pathname: `/profile/${decoded.id}`,
                       state: data.id,
@@ -60,7 +85,7 @@ const Productind = (props) => {
                     className="btn btn-primary mt-4 mb-4"
                   >
                     Add to cart
-                  </Link>
+                  </Link> */}
                   <div className="desc">
                     <h2>Description</h2>
                     <p>{data.description}</p>

@@ -58,6 +58,11 @@ const Navbar = (props) => {
               </NavLink>
             </li>
             <li className="nav-item">
+                <NavLink to="/product" className="nav-link">
+                  Products
+                </NavLink>
+            </li>
+            <li className="nav-item">
               {props.isAuthenticated ? (
                 <NavLink to="/profile" className="nav-link">
                   Profile

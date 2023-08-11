@@ -36,14 +36,13 @@ const App = () => {
         <Route exact path="/services" component={Services} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
-        <PrivateRoute exact path="/product" component={Product} isAuthenticated={isAuthenticated} />
-        <PrivateRoute
+        <Route exact path="/product" component={Product}/>
+        <Route
           exact
           path="/productind/:id"
           component={Productind}
-          isAuthenticated={isAuthenticated}
         />
-        <Route exact path="/profile/:id" component={Profile} />
+        <PrivateRoute exact path="/profile" component={Profile} isAuthenticated={isAuthenticated} />
         <Redirect to="/" />
       </Switch>
       <Footer />

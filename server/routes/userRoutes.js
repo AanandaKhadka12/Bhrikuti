@@ -38,14 +38,13 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-//Get all Method
 router.post("/login", async (req, res) => {
   try {
     let user = await Model.findOne({
       username: req.body.username,
       password: req.body.password,
     });
-    console.log(user)
+
     if (user) {
       const token = jwt.sign(
         {
@@ -53,10 +52,7 @@ router.post("/login", async (req, res) => {
           fullname: user.fullname,
           id: user._id.toString(),
         },
-        "Bhr1kut1T0ken",
-        {
-          expiresIn: "2h",
-        }
+        "Bhr1kut1T0ken"
       );
       res.status(200).json({
         token: token,
@@ -71,20 +67,32 @@ router.post("/login", async (req, res) => {
   }
 });
 
-
 router.patch("/update/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const updatedData = req.body;
     const options = { new: true };
-
-    const result = await Model.findByIdAndUpdate(id, updatedData, options);
-
-    res.send(result);
+    let user = await Model.findById(id);
+    const result = await Model.findByIdAndUpdate(
+      id,
+      { products: [...user.products,updatedData] },
+      options
+    );
+    res.status(200).json({
+      result,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
+router.get("/user/:id", async (req, res) => {
+  try {
+    const data = await Model.findById(req.params.id);
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 module.exports = router;

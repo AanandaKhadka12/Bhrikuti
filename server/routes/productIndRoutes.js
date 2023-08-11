@@ -4,9 +4,7 @@ const router = express.Router();
 
 router.get('/productind/:id', async (req, res) => {
     try {
-        console.log(req.params.id)
         const data = await Model.find({id:req.params.id});
-        console.log(data)
         res.json(data)
     }
     catch (error) {
