@@ -42,7 +42,7 @@ const Footer = () => {
                     <h1>Quick Links</h1>
                     <div className='links'>
 
-                        <a className="ql" href="#"><i className="fa-solid fa-arrow-right-long"></i>Home</a>
+                        <a className="ql" href="/"><i className="fa-solid fa-arrow-right-long"></i>Home</a>
                         <a className="ql" href="#"><i className="fa-solid fa-arrow-right-long"></i>About</a>
                         <a className="ql" href="#"><i className="fa-solid fa-arrow-right-long"></i>Contact</a>
                         <a className="ql" href="#"><i className="fa-solid fa-arrow-right-long"></i>Services</a>

@@ -24,12 +24,21 @@ const Profile = () => {
     
   
   })
+
+  const onItemClick = async () =>{
+    
+    window.location.replace('/login');
+    sessionStorage.removeItem('token');
+  
+  }
+  
   return (
     <>
       <div className="container mt-3">
         <div className="row">
           <div className="col-lg-12 col-sm-12 username">
             <h3 className="mt-2">{profileInfo.fullname}</h3>
+            
             <h4>Your Cart</h4>
           </div>
         </div>
@@ -57,6 +66,12 @@ const Profile = () => {
         <div className="row">
           <div className="col-lg-12 col-sm-12 total_amount">
             <p className="mt-2">TOTAL AMOUNT TO BE PAID: ${totalAmount}</p>
+            <button
+                    onClick={(e) => onItemClick()}
+                    className="btn btn-primary mt-4 mb-4"
+                  >
+                    Logout
+            </button>
           </div>
         </div>
       </div>

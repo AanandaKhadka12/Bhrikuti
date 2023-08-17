@@ -47,7 +47,7 @@ const Login = () => {
             </div>
             <div className="links">
               <p style={{ color: "red" }}>{error}</p>
-              <a href="#">Forgot Password</a> <a href="signup">Signup</a>
+               <a href="signup">Signup</a>
             </div>
 
             <div className="inputBox">
