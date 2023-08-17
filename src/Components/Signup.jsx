@@ -73,7 +73,7 @@ const Signup = () => {
             </div>
             <div className="links">
               <p style={{ color: "red" }}>{error}</p>
-              <a href="#">Already have an Account?</a> <a href="login">Log In</a>
+              <a href="/login">Already have an Account?</a> 
             </div>
 
             <div className="inputBox">

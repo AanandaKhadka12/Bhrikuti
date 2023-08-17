@@ -9,7 +9,7 @@ const Productcard = (props) => {
           state: props.id,
         }}
       >
-        <div className="card__indp">
+        <div className="card__indp mb-3">
           
             <img
               src={require("../static/images/" + props.img)}
