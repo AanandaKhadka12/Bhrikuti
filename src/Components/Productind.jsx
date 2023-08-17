@@ -49,7 +49,7 @@ const Productind = (props) => {
           <>
             <div className="row p-3">
               <div className="col-lg-12">
-                <p>Product{data.category}</p>
+                <p>{`Product>`+data.category}</p>
               </div>
             </div>
             <div className="row">
