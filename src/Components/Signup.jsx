@@ -5,9 +5,16 @@ import { createBrowserHistory } from "history";
 
 export const history = createBrowserHistory();
 const Signup = () => {
+  const [input, setInput] = useState({
+    username: '',
+    password: '',
+    confirmPassword: ''
+  });
+ 
+  
   const [fullname, setFullName] = useState()
-
   const [username, setUsername] = useState()
+  const [confirmPassword, setConfirmPassword] = useState()
   const [password, setPassword] = useState()
   const [error, setError] = useState()
 
@@ -26,6 +33,22 @@ const Signup = () => {
       setError(result.message);
     }
   }
+  
+
+ const validatePassword=(value)=>{
+    if (!value) {
+      setError("Please enter Confirm Password.");
+    } else if (password && value !== password) {
+      setError("Password and Confirm Password does not match.")
+    }else if(password&& value=== password){
+      setError()
+      setConfirmPassword()
+    }
+ 
+
+ }
+   
+
   return (
     <section>
       <div className="signin">
@@ -43,10 +66,10 @@ const Signup = () => {
             </div>
 
             <div className="inputBox">
-              <input type="password" required></input> <i>Password</i>
+              <input type="password" required onChange={e => setPassword(e.target.value)}></input> <i>Password</i>
             </div>
             <div className="inputBox">
-              <input type="password" required onChange={e => setPassword(e.target.value)}></input> <i>Confirm Password</i>
+              <input type="password" required onChange={e => validatePassword(e.target.value)}></input> <i>Confirm Password</i>
             </div>
             <div className="links">
               <p style={{ color: "red" }}>{error}</p>

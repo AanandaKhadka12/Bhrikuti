@@ -4,6 +4,8 @@ import "./Navbar.css";
 import emg from "../static/images/dhakatopi.jpg";
 
 const Navbar = (props) => {
+  const path =window.location.pathname;
+  console.log(path)
   return (
     <div className="navigation_main">
       <nav role="Logos">
@@ -38,12 +40,12 @@ const Navbar = (props) => {
         >
           <ul className="navbar-nav mx-auto ">
             <li className="nav-item">
-              <NavLink to="/" className="nav-link">
+              <NavLink to="/" className="nav-link" activeStyle={path==="/"&&{borderBottom: 'solid 3px #fff', paddingBottom: '1em'}}>
                 Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/About" className="nav-link">
+              <NavLink to="/About" className="nav-link" activeStyle={path==="/About"&&{borderBottom: 'solid 3px #fff', paddingBottom: '1em'}}>
                 About
               </NavLink>
             </li>
